@@ -1,101 +1,54 @@
 <div align="center">
 
-<img src="https://www.goravel.dev/logo.png?v=1.14.x" width="300" alt="Logo">
+<img src="docs/assets/logo.svg" width="390" alt="Railway Ticket" />
 
-[![Doc](https://pkg.go.dev/badge/github.com/goravel/framework)](https://pkg.go.dev/github.com/goravel/framework)
-[![Go](https://img.shields.io/github/go-mod/go-version/goravel/framework)](https://go.dev/)
-[![Release](https://img.shields.io/github/release/goravel/framework.svg)](https://github.com/goravel/framework/releases)
-[![Test](https://github.com/goravel/framework/actions/workflows/test.yml/badge.svg)](https://github.com/goravel/framework/actions)
-[![Report Card](https://goreportcard.com/badge/github.com/goravel/framework)](https://goreportcard.com/report/github.com/goravel/framework)
-[![Codecov](https://codecov.io/gh/goravel/framework/branch/master/graph/badge.svg)](https://codecov.io/gh/goravel/framework)
-![License](https://img.shields.io/github/license/goravel/framework)
+**Poyezd safarlari uchun Telegram Mini App.**
+
+Yo‘nalish va sanani tanlang. Poyezd va joy filterlari bilan kuzatuv yarating.
+
+**Go · Goravel · PostgreSQL · Vue 3 · TypeScript**
+
+[Ilovani ochish](https://bilet.amusoft.uz) · [Serverga o‘rnatish](DEPLOY.md)
 
 </div>
 
-English | [中文](./README_zh.md)
+## Ko‘rinish
 
-## About Goravel
+<p align="center">
+  <img src="docs/assets/home.jpg" width="260" alt="Railway Ticket — asosiy sahifa" />
+  <img src="docs/assets/watch-form.jpg" width="260" alt="Kuzatuv yaratish — safar va joy filterlari" />
+</p>
 
-Goravel is a full-featured, scalable web application framework that provides a starting scaffold to help Gophers quickly build their applications.
+## Imkoniyatlar
 
-The framework style is consistent with [Laravel](https://laravel.com/), so PHP developers don’t need to learn a new framework and can still enjoy playing around with Golang, in tribute to Laravel!
+- Telegram orqali kirish va foydalanuvchi profili.
+- O‘zbekcha, ruscha va inglizcha bekatlar; E-ticket’dan reys qidirish.
+- Kuzatuv yaratish, ro‘yxatini olish, pauza qilish va o‘chirish.
+- Poyezd, vagon turi, joy pozitsiyasi va klass filterlarini saqlash.
+- Faol kuzatuvlarni 4 ta goroutine orqali qo‘lda tekshirish.
 
-We welcome stars, PRs, and issues!
+> Loyiha rivojlanmoqda. Avtomatik premium/free tekshiruvi, filterlarga mos joylarni aniqlash va Telegram xabarnomalari keyingi bosqichda ulanadi.
 
-## Documentation
+## Ishga tushirish
 
-Ubuntu serverga build va deploy qilish: [DEPLOY.md](DEPLOY.md).
+Bu repo **Goravel backend** uchun. Rasmlardagi Vue frontend alohida loyihada joylashgan.
 
-Online documentation [https://www.goravel.dev](https://www.goravel.dev)
+Go 1.25+ va PostgreSQL kerak. Baza yarating, `.env.example`dan `.env` nusxasini olib, `DB_*` va `TELEGRAM_BOT_TOKEN` qiymatlarini sozlang.
 
-Example [https://github.com/goravel/example](https://github.com/goravel/example)
+```sh
+cp .env.example .env
+go mod download
+make key-generate
+make migrate-up
+make run
+```
 
-> To optimize the documentation, please submit a PR to the documentation
-> repository [https://github.com/goravel/docs](https://github.com/goravel/docs)
+API: `http://127.0.0.1:8080/api/v1`. Telegram so‘rovlari `Authorization: tma <initData>` header’i bilan yuboriladi.
 
-## Main Features
+```sh
+./artisan watch:check 1   # Bitta kuzatuvni tekshirish
+./artisan check:watches   # Faol kuzatuvlarni tekshirish
+make help                # Barcha buyruqlar
+```
 
-| Module Name | Description |
-|-------------|-------------|
-| [Artisan Console](https://www.goravel.dev/digging-deeper/artisan-console.html) | CLI command-line interface for application management and automation |
-| [Authentication](https://www.goravel.dev/security/authentication.html) | User identity verification with JWT and Session drivers |
-| [Authorization](https://www.goravel.dev/security/authorization.html) | Permission-based access control using policies and gates |
-| [Cache](https://www.goravel.dev/digging-deeper/cache.html) | Store and retrieve data using memory, Redis, or custom drivers |
-| [Carbon](https://www.goravel.dev/digging-deeper/helpers.html) | Helper functions for date and time manipulation |
-| [Config](https://www.goravel.dev/getting-started/configuration.html) | Application configuration management from files and environment |
-| [Crypt](https://www.goravel.dev/security/encryption.html) | Secure data encryption and decryption utilities |
-| [DB](https://www.goravel.dev/database/getting-started.html) | Database query builder |
-| [Event](https://www.goravel.dev/digging-deeper/event.html) | Application event dispatching and listening system |
-| [Factory](https://www.goravel.dev/orm/factories.html) | Generate fake model data for testing purposes |
-| [FileStorage](https://www.goravel.dev/digging-deeper/filesystem.html) | File upload, download, and storage across multiple drivers |
-| [Grpc](https://www.goravel.dev/the-basics/grpc.html) | High-performance gRPC server and client implementation |
-| [Hash](https://www.goravel.dev/security/hashing.html) | Secure password hashing |
-| [Http](https://www.goravel.dev/the-basics/routing.html) | HTTP routing, controllers, and middleware management |
-| [Http Client](https://www.goravel.dev/digging-deeper/http-client.html) | Make HTTP requests to external APIs and services |
-| [Localization](https://www.goravel.dev/digging-deeper/localization.html) | Multi-language translation and locale management |
-| [Logger](https://www.goravel.dev/the-basics/logging.html) | Application logging to files, console, or external services |
-| [Mail](https://www.goravel.dev/digging-deeper/mail.html) | Send emails via SMTP or queue-based delivery |
-| [Mock](https://www.goravel.dev/testing/mock.html) | Create test mocks for facades and dependencies |
-| [Migrate](https://www.goravel.dev/database/migrations.html) | Version control for database schema changes |
-| [Orm](https://www.goravel.dev/orm/getting-started.html) | Elegant Orm implementation for database operations |
-| [Package Development](https://www.goravel.dev/digging-deeper/package-development.html) | Build reusable packages to extend framework functionality |
-| [Process](https://www.goravel.dev/digging-deeper/process.html) | An expressive and elegant API around Go's standard os/exec package |
-| [Queue](https://www.goravel.dev/digging-deeper/queues.html) | Defer time-consuming tasks to background job processing |
-| [Seeder](https://www.goravel.dev/database/seeding.html) | Populate database tables with test or initial data |
-| [Session](https://www.goravel.dev/the-basics/session.html) | Manage user session data across HTTP requests |
-| [Task Scheduling](https://www.goravel.dev/digging-deeper/task-scheduling.html) | Schedule recurring tasks using cron-like expressions |
-| [Testing](https://www.goravel.dev/testing/getting-started.html) | HTTP testing, mocking, and assertion utilities |
-| [Validation](https://www.goravel.dev/the-basics/validation.html) | Validate incoming request data using rules |
-| [View](https://www.goravel.dev/the-basics/views.html) | Template rendering engine for HTML responses |
-
-## Compare With Laravel
-
-[For Detail](https://www.goravel.dev/prologue/compare-with-laravel.html)
-
-## Roadmap
-
-[For Detail](https://github.com/goravel/goravel/issues?q=is%3Aissue+is%3Aopen)
-
-## Excellent Extend Packages
-
-[For Detail](https://www.goravel.dev/getting-started/packages.html)
-
-## Contributors
-
-This project exists thanks to all the people who contribute, to participate in the contribution, please see [Contribution Guide](https://www.goravel.dev/prologue/contributions.html).
-
-## Sponsor
-
-Better development of the project is inseparable from your support, reward us by [Open Collective](https://opencollective.com/goravel).
-
-<p align="left"><img src="https://www.goravel.dev/reward.png" width="200"></p>
-
-## Group
-
-Welcome more discussion in Discord.
-
-[https://discord.gg/cFc5csczzS](https://discord.gg/cFc5csczzS)
-
-## License
-
-The Goravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ubuntu, Nginx va systemd bilan deploy: **[DEPLOY.md](DEPLOY.md)**.
