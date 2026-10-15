@@ -1,0 +1,421 @@
+{
+  "data": {
+    "directions": {
+      "forward": {
+        "trains": [
+          {
+            "type": "TY",
+            "number": "712Ф",
+            "departureDate": "15.10.2026 00:02",
+            "timeOnWay": "02:25",
+            "originRoute": {
+              "depStationName": "Toshkent Shimoliy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "15.10.2026 02:27",
+            "brand": "Sharq",
+            "cars": [
+              {
+                "type": "O'rindiqli",
+                "freeSeats": 176,
+                "tariffs": [
+                  {
+                    "classServiceType": "1С",
+                    "freeSeats": 35,
+                    "tariff": 251240
+                  },
+                  {
+                    "classServiceType": "1В",
+                    "freeSeats": 4,
+                    "tariff": 468750
+                  },
+                  {
+                    "classServiceType": "2В",
+                    "freeSeats": 137,
+                    "tariff": 169810
+                  }
+                ],
+                "seatDetail": {
+                  "undef": 176,
+                  "lateralDn": 0,
+                  "lateralUp": 0,
+                  "freeComp": 0,
+                  "down": 0,
+                  "up": 0
+                }
+              }
+            ],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "TY",
+            "number": "056Ч",
+            "departureDate": "15.10.2026 02:02",
+            "timeOnWay": "03:10",
+            "originRoute": {
+              "depStationName": "Toshkent Janubiy",
+              "arvStationName": "Xiva"
+            },
+            "arrivalDate": "15.10.2026 05:12",
+            "brand": "Yo'lovchi",
+            "cars": [
+              {
+                "type": "Plaskartli",
+                "freeSeats": 16,
+                "tariffs": [
+                  {
+                    "classServiceType": "3П",
+                    "freeSeats": 0,
+                    "tariff": 129190
+                  }
+                ],
+                "seatDetail": {
+                  "undef": 0,
+                  "lateralDn": 0,
+                  "lateralUp": 8,
+                  "freeComp": 0,
+                  "down": 0,
+                  "up": 8
+                }
+              },
+              {
+                "type": "Kupe",
+                "freeSeats": 5,
+                "tariffs": [
+                  {
+                    "classServiceType": "2К",
+                    "freeSeats": 0,
+                    "tariff": 166320
+                  }
+                ],
+                "seatDetail": {
+                  "undef": 0,
+                  "lateralDn": 0,
+                  "lateralUp": 0,
+                  "freeComp": 1,
+                  "down": 2,
+                  "up": 3
+                }
+              }
+            ],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "YTH",
+            "number": "778Ф",
+            "departureDate": "15.10.2026 08:33",
+            "timeOnWay": "01:37",
+            "originRoute": {
+              "depStationName": "Toshkent Markaziy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "15.10.2026 10:10",
+            "brand": "Afrosiyob",
+            "cars": [
+              {
+                "type": "O'rindiqli",
+                "freeSeats": 71,
+                "tariffs": [
+                  {
+                    "classServiceType": "1С",
+                    "freeSeats": 23,
+                    "tariff": 332000
+                  },
+                  {
+                    "classServiceType": "1В",
+                    "freeSeats": 5,
+                    "tariff": 462000
+                  },
+                  {
+                    "classServiceType": "2Е",
+                    "freeSeats": 43,
+                    "tariff": 225000
+                  }
+                ],
+                "seatDetail": {
+                  "undef": 71,
+                  "lateralDn": 0,
+                  "lateralUp": 0,
+                  "freeComp": 0,
+                  "down": 0,
+                  "up": 0
+                }
+              }
+            ],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "TY",
+            "number": "710Ф",
+            "departureDate": "15.10.2026 12:00",
+            "timeOnWay": "02:35",
+            "originRoute": {
+              "depStationName": "Toshkent Markaziy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "15.10.2026 14:35",
+            "brand": "Sharq",
+            "cars": [
+              {
+                "type": "O'rindiqli",
+                "freeSeats": 47,
+                "tariffs": [
+                  {
+                    "classServiceType": "1С",
+                    "freeSeats": 32,
+                    "tariff": 251240
+                  },
+                  {
+                    "classServiceType": "1В",
+                    "freeSeats": 15,
+                    "tariff": 468750
+                  }
+                ],
+                "seatDetail": {
+                  "undef": 47,
+                  "lateralDn": 0,
+                  "lateralUp": 0,
+                  "freeComp": 0,
+                  "down": 0,
+                  "up": 0
+                }
+              }
+            ],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "YLCh",
+            "number": "072Ф",
+            "departureDate": "15.10.2026 03:00",
+            "timeOnWay": "03:28",
+            "originRoute": {
+              "depStationName": "Toshkent janubiy",
+              "arvStationName": "Olot"
+            },
+            "arrivalDate": "15.10.2026 06:28",
+            "brand": "Yo'lovchi",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "TY",
+            "number": "125Ч",
+            "departureDate": "15.10.2026 03:00",
+            "timeOnWay": "03:28",
+            "originRoute": {
+              "depStationName": "Andijon 1",
+              "arvStationName": "Urganch"
+            },
+            "arrivalDate": "15.10.2026 06:28",
+            "brand": "Yo'lovchi",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "TY",
+            "number": "127Ф",
+            "departureDate": "15.10.2026 05:37",
+            "timeOnWay": "02:56",
+            "originRoute": {
+              "depStationName": "Andijon 1",
+              "arvStationName": "Qung'irot"
+            },
+            "arrivalDate": "15.10.2026 08:33",
+            "brand": "Yo'lovchi",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "В-СКОР",
+            "number": "752Ж",
+            "departureDate": "15.10.2026 09:23",
+            "timeOnWay": "01:31",
+            "originRoute": {
+              "depStationName": "Toshkent",
+              "arvStationName": "Xiva"
+            },
+            "arrivalDate": "15.10.2026 10:54",
+            "brand": "Jaloliddin Manguberdi",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "YTH",
+            "number": "766Ф",
+            "departureDate": "15.10.2026 09:53",
+            "timeOnWay": "01:46",
+            "originRoute": {
+              "depStationName": "Toshkent Markaziy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "15.10.2026 11:39",
+            "brand": "Afrosiyob",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "YTH",
+            "number": "770Ф",
+            "departureDate": "15.10.2026 10:59",
+            "timeOnWay": "01:37",
+            "originRoute": {
+              "depStationName": "Toshkent Markaziy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "15.10.2026 12:36",
+            "brand": "Afrosiyob",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "В-СКОР",
+            "number": "754Ж",
+            "departureDate": "15.10.2026 13:43",
+            "timeOnWay": "01:44",
+            "originRoute": {
+              "depStationName": "Toshkent Shimoliy",
+              "arvStationName": "Toshkent Janubiy"
+            },
+            "arrivalDate": "15.10.2026 15:27",
+            "brand": "Jaloliddin Manguberdi",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "TY",
+            "number": "054Ф",
+            "departureDate": "15.10.2026 20:36",
+            "timeOnWay": "02:39",
+            "originRoute": {
+              "depStationName": "Toshkent janubiy",
+              "arvStationName": "Qo'ng'irot"
+            },
+            "arrivalDate": "15.10.2026 23:15",
+            "brand": "Tezyurar",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          },
+          {
+            "type": "YTH",
+            "number": "772Ф",
+            "departureDate": "15.10.2026 22:23",
+            "timeOnWay": "01:38",
+            "originRoute": {
+              "depStationName": "Toshkent Markaziy",
+              "arvStationName": "Buxoro"
+            },
+            "arrivalDate": "16.10.2026 00:01",
+            "brand": "Afrosiyob",
+            "cars": [],
+            "subRoute": {
+              "depStationName": "SAMARQAND",
+              "depStationCode": "2900700",
+              "arvStationName": "BUXORO",
+              "arvStationCode": "2900800"
+            },
+            "trainId": null,
+            "comment": null,
+            "providerType": "EXPRESS"
+          }
+        ]
+      }
+    }
+  },
+  "error": null
+}

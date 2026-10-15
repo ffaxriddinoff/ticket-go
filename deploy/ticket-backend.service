@@ -1,0 +1,17 @@
+[Unit]
+Description=Ticket Goravel Backend
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/var/www/ticket-backend
+ExecStart=/var/www/ticket-backend/ticket-backend
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+.idea
+.vscode
+.DS_Store
+.env
+.env.*
+!.env.example
+storage
+tmp
+/bin/
+deploy.mk
+
+/ticket-backend
+/ticket-backend.exe
