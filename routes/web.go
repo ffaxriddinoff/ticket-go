@@ -40,6 +40,7 @@ func Web() {
 		router.Get("/watches", watchController.Index)
 		router.Post("/watches", watchController.Store)
 		router.Patch("/watches/{id}/pause", watchController.Pause)
+		router.Patch("/watches/{id}/resume", watchController.Resume)
 		router.Delete("/watches/{id}", watchController.Destroy)
 	})
 

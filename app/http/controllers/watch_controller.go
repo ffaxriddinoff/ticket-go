@@ -254,6 +254,79 @@ func (c *WatchController) Pause(ctx http.Context) http.Response {
 	return ctx.Response().NoContent(http.StatusNoContent)
 }
 
+func (c *WatchController) Resume(ctx http.Context) http.Response {
+	identity, ok := middleware.TelegramIdentityFromContext(ctx)
+	if !ok {
+		return watchError(
+			ctx,
+			http.StatusUnauthorized,
+			"unauthorized",
+			"Telegram authentication is required.",
+		)
+	}
+	//identity := dto.TelegramIdentity{
+	//	TelegramID:  590924106,
+	//	Username:    "qodirovfaxriddin",
+	//	DisplayName: "Faxa",
+	//}
+
+	watchID, err := strconv.ParseUint(ctx.Request().Route("id"), 10, 63)
+	if err != nil || watchID == 0 {
+		return watchError(
+			ctx,
+			http.StatusBadRequest,
+			"invalid_watch_id",
+			"Invalid watch ID.",
+		)
+	}
+
+	user, err := c.userService.Profile(ctx.Context(), identity)
+	if errors.Is(err, services.ErrInvalidIdentity) {
+		return watchError(
+			ctx,
+			http.StatusUnauthorized,
+			"unauthorized",
+			"Invalid Telegram identity.",
+		)
+	}
+
+	if err != nil {
+		facades.Log().WithContext(ctx.Context()).
+			Errorf("Resolve watch owner: %v", err)
+
+		return watchError(
+			ctx,
+			http.StatusInternalServerError,
+			"internal_error",
+			"Could not load user profile.",
+		)
+	}
+
+	err = c.watchService.Resume(ctx.Context(), user.ID, uint(watchID))
+
+	if errors.Is(err, services.ErrWatchNotFound) {
+		return watchError(
+			ctx,
+			http.StatusNotFound,
+			"watch_not_found",
+			"Watch not found.",
+		)
+	}
+	if err != nil {
+		facades.Log().WithContext(ctx.Context()).
+			Errorf("Pause watch: %v", err)
+
+		return watchError(
+			ctx,
+			http.StatusInternalServerError,
+			"internal_error",
+			"Could not pause watch.",
+		)
+	}
+
+	return ctx.Response().NoContent(http.StatusNoContent)
+}
+
 func (c *WatchController) Destroy(ctx http.Context) http.Response {
 	identity, ok := middleware.TelegramIdentityFromContext(ctx)
 	if !ok {

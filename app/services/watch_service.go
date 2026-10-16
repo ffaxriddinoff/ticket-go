@@ -97,3 +97,21 @@ func (s *WatchService) Pause(ctx context.Context, userID uint, watchID uint) err
 
 	return nil
 }
+
+func (s *WatchService) Resume(ctx context.Context, userID, watchID uint) error {
+	result, err := facades.Orm().WithContext(ctx).Query().
+		Model(&models.Watch{}).
+		Where("user_id", userID).
+		Where("id", watchID).
+		Update("is_active", true)
+
+	if err != nil {
+		return err
+	}
+
+	if result.RowsAffected == 0 {
+		return ErrWatchNotFound
+	}
+
+	return nil
+}

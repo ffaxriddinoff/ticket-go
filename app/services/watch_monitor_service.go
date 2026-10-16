@@ -14,11 +14,13 @@ import (
 
 type WatchMonitorService struct {
 	trainService *TrainService
+	matchService *MatchService
 }
 
 func NewWatchMonitorService() *WatchMonitorService {
 	return &WatchMonitorService{
 		trainService: NewTrainService(),
+		matchService: NewMatchService(),
 	}
 }
 
@@ -45,10 +47,7 @@ func (s *WatchMonitorService) CheckActiveWatches(ctx context.Context) error {
 	return s.checkWatchesConcurrently(ctx, watches)
 }
 
-func (s *WatchMonitorService) checkWatchesConcurrently(
-	ctx context.Context,
-	watches []models.Watch,
-) error {
+func (s *WatchMonitorService) checkWatchesConcurrently(ctx context.Context, watches []models.Watch) error {
 	const workers = 4
 
 	jobs := make(chan uint)
@@ -138,6 +137,15 @@ func (s *WatchMonitorService) CheckWatch(ctx context.Context, watchId uint) erro
 	if err != nil {
 		return fmt.Errorf("watch %d: search trains: %w", watchId, err)
 	}
+
+	selectedTrains := s.matchService.Filter(trains, watch.Filters)
+
+	facades.Log().WithContext(ctx).Infof(
+		"watch trains filtered: watch_id=%d total=%d selected=%d",
+		watch.ID,
+		len(trains),
+		len(selectedTrains),
+	)
 
 	result, err := facades.Orm().
 		WithContext(ctx).
