@@ -5,6 +5,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"ticket-backend/app/models"
 	"time"
 	"unicode/utf8"
 
@@ -25,6 +26,13 @@ func (m *TelegramAuth) Signature() string {
 
 func (m *TelegramAuth) Handle(ctx http.Context) {
 	config := facades.Config()
+
+	if config.GetString("app.env") == "local" &&
+		config.EnvBool("TELEGRAM_AUTH_MOCK", false) &&
+		ctx.Request().Header("Authorization") == "" {
+		m.authenticateLocalUser(ctx)
+		return
+	}
 
 	botToken := strings.TrimSpace(config.GetString("telegram.bot_token"))
 	maxAge, err := time.ParseDuration(config.GetString("telegram.init_data_ttl", "1h"))
@@ -119,4 +127,57 @@ func telegramUnauthorized(ctx http.Context) {
 			"message": "Valid initData is required",
 		},
 	}).Abort()
+}
+
+func (m *TelegramAuth) authenticateLocalUser(ctx http.Context) {
+	var user models.User
+
+	err := facades.Orm().
+		WithContext(ctx.Context()).
+		Query().
+		OrderBy("id").
+		First(&user)
+
+	if err != nil {
+		facades.Log().WithContext(ctx.Context()).
+			Errorf("Load local auth user: %v", err)
+
+		_ = ctx.Response().Json(
+			http.StatusInternalServerError,
+			http.Json{
+				"error": http.Json{
+					"code":    "internal_error",
+					"message": "Could not load local user.",
+				},
+			},
+		).Abort()
+		return
+	}
+
+	if user.ID == 0 || user.TelegramID <= 0 {
+		_ = ctx.Response().Json(
+			http.StatusServiceUnavailable,
+			http.Json{
+				"error": http.Json{
+					"code": "auth_unavailable",
+					"message": "First local user is missing " +
+						"or has no valid Telegram ID.",
+				},
+			},
+		).Abort()
+		return
+	}
+
+	username := ""
+	if user.Username != nil {
+		username = *user.Username
+	}
+
+	ctx.WithValue(telegramIdentityKey{}, dto.TelegramIdentity{
+		TelegramID:  user.TelegramID,
+		Username:    username,
+		DisplayName: user.DisplayName,
+	})
+
+	ctx.Request().Next()
 }

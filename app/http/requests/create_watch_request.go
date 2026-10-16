@@ -40,9 +40,8 @@ func (r *CreateWatchRequest) Rules(ctx http.Context) map[string]any {
 		"filters.classes":   "list",
 		"filters.classes.*": "string|max:100",
 
-		"filters.wagon_types": "list",
-		"filters.wagon_types.*": "required|string|" +
-			"in:seated,platzkart,coupe,lux,soft,sv,general",
+		"filters.wagon_types":   "sometimes|list",
+		"filters.wagon_types.*": "sometimes|string|in:seated,platzkart,coupe,lux,soft,sv,general",
 	}
 }
 func (r *CreateWatchRequest) Messages(ctx http.Context) map[string]string {
