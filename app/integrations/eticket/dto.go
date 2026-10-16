@@ -1,6 +1,9 @@
 package eticket
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"ticket-backend/app/dto"
+)
 
 /////////// Request
 
@@ -68,6 +71,17 @@ type Car struct {
 	FreeSeats  int        `json:"freeSeats"`
 	Tariffs    []Tariff   `json:"tariffs"`
 	SeatDetail SeatDetail `json:"seatDetail"`
+}
+
+func (c Car) WagonType() (dto.WagonType, bool) {
+	switch c.Type {
+	case "Plaskartli":
+		return dto.WagonTypePlatzkart, true
+	case "Kupe":
+		return dto.WagonTypeCoupe, true
+	default:
+		return "", false
+	}
 }
 
 type Tariff struct {
